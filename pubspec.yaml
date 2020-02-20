@@ -10,7 +10,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  zendesk_flutter_plugin: ^1.0.0
+  zendesk_flutter_plugin:
+    git:
+      url: https://github.com/Xavjer/zendesk-flutter-plugin.git
 
 dev_dependencies:
   flutter_test:
