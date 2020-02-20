@@ -9,6 +9,7 @@ class ChatSettings {
 
   ChatSettings({
     @required this.visitor,
+    this.welcomeMessage,
     this.department,
     this.tags,
   }) : assert(visitor != null);
