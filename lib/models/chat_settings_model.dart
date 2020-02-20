@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:zendesk_chat/models/models.dart';
 
 class ChatSettings {
+  final String welcomeMessage;
   final Visitor visitor;
   final String department;
   final List<String> tags;
