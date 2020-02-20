@@ -59,7 +59,12 @@ class _ZendeskChatWidgetState extends State<ZendeskChatWidget> {
     zendeskSdk.onChatItemsChanged.listen((List<ChatItem> chatLog) {
       if (!mounted) return;
       setState(() {
-        _chatLog = chatLog;
+        _chatLog.clear();
+        if (!chatSettings?.welcomeMessage.isEmpty) {
+          Map<String, dynamic> attributes = {"timestamp":DateTime.now().millisecondsSinceEpoch,"type":"chat.systemmsg", "display_name":"System","msg":chatSettings.welcomeMessage,"nick":"System"};
+          _chatLog.add(ChatItem("welcome-message", attributes, 'ios'));
+        }
+        _chatLog.addAll(chatLog);
       });
     });
   }
