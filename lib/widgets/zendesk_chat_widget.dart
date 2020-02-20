@@ -36,7 +36,8 @@ class _ZendeskChatWidgetState extends State<ZendeskChatWidget> {
     super.initState();
 
     if (!chatSettings?.welcomeMessage.isEmpty) {
-      _chatLog.add(ChatItem("welcome-message", {"timestamp":DateTime.now().millisecondsSinceEpoch,"type":"chat.systemmsg", "display_name":"System","msg":chatSettings.welcomeMessage,"nick":"System"}, 'ios'));
+      Map<String, dynamic> attributes = {"timestamp":DateTime.now().millisecondsSinceEpoch,"type":"chat.systemmsg", "display_name":"System","msg":chatSettings.welcomeMessage,"nick":"System"};
+      _chatLog.add(ChatItem("welcome-message", attributes, 'ios'));
     }
 
     zendeskSdk.startChat(
