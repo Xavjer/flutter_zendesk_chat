@@ -36,7 +36,7 @@ class _ZendeskChatWidgetState extends State<ZendeskChatWidget> {
     super.initState();
 
     if (!chatSettings?.welcomeMessage.isEmpty) {
-      Map<String, dynamic> attributes = {"timestamp":DateTime.now().millisecondsSinceEpoch,"type":"chat.systemmsg", "display_name":"System","msg":chatSettings.welcomeMessage,"nick":"System"};
+      Map<String, dynamic> attributes = {"timestamp":DateTime.now().millisecondsSinceEpoch,"type":"chat.systemmsg", "display_name":chatSettings.welcomeHeader != null ? chatSettings.welcomeHeader : "System","msg":chatSettings.welcomeMessage,"nick":chatSettings.welcomeHeader != null ? chatSettings.welcomeHeader : "System"};
       _chatLog.add(ChatItem("welcome-message", attributes, 'ios'));
     }
 
@@ -61,7 +61,7 @@ class _ZendeskChatWidgetState extends State<ZendeskChatWidget> {
       setState(() {
         _chatLog.clear();
         if (!chatSettings?.welcomeMessage.isEmpty) {
-          Map<String, dynamic> attributes = {"timestamp":DateTime.now().millisecondsSinceEpoch,"type":"chat.systemmsg", "display_name":"System","msg":chatSettings.welcomeMessage,"nick":"System"};
+          Map<String, dynamic> attributes = {"timestamp":DateTime.now().millisecondsSinceEpoch,"type":"chat.systemmsg", "display_name":chatSettings.welcomeHeader != null ? chatSettings.welcomeHeader : "System","msg":chatSettings.welcomeMessage,"nick":chatSettings.welcomeHeader != null ? chatSettings.welcomeHeader : "System"};
           _chatLog.add(ChatItem("welcome-message", attributes, 'ios'));
         }
         _chatLog.addAll(chatLog);
